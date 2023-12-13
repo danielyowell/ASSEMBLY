@@ -11,16 +11,17 @@ EXE_FILE = hello.x
 all: $(EXE_FILE) clean
 
 $(EXE_FILE): $(OBJ_FILE)
-	ld -m elf_i386 -s -o $(EXE_FILE) $(OBJ_FILE)
+	@ld -m elf_i386 -s -o $(EXE_FILE) $(OBJ_FILE)
+	@./$(EXE_FILE)
 
 $(OBJ_FILE): $(ASM_SOURCE)
-	nasm -f elf $(ASM_SOURCE)
+	@nasm -f elf $(ASM_SOURCE)
 
 #clean:
 #	rm -f $(OBJ_FILE) $(EXE_FILE)
 clean:
-	rm -f *~ *.x *.o
-	rm -f *~ *.x *.o
+	@rm -f *~ *.x *.o
+	@rm -f *~ *.x *.o
 
 ######
 
